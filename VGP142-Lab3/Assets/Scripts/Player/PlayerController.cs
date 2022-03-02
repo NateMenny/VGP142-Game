@@ -6,18 +6,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject blueGreatsword;
+    [SerializeField] GameObject greyGreatsword;
 
-    [SerializeField]Animator animCont;
+    int combatPoints;
+    int knowledgePoints;
+
     PlayerMovement pm;
 
+    [Header("Animation Variables")]
+    [SerializeField] Animator animCont;
+    [SerializeField] float gestureDelay = 5f; // Time in seconds to wait before doing idle gesture
     bool isAttacking = false;
     bool isDead = false;
-
-    [Header("Animation Variables")]
-    [SerializeField] float gestureDelay = 5f; // Time in seconds to wait before doing idle gesture
     float idleTime = 0f; // Set - 0 after reaching time to do gesture
     float attackDuration = 0f;
     float attackTimer = 0f;
+
+    public int CombatPoints { get => combatPoints; set => combatPoints = value; }
+    public int KnowledgePoints { get => knowledgePoints; set => knowledgePoints = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +38,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player does not have movement script");
         }
+
+        blueGreatsword.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -104,5 +113,17 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         animCont.SetTrigger("doSwingAttack");
         attackDuration = animCont.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public void EquipBlueGreatsword()
+    {
+        greyGreatsword.SetActive(false);
+        blueGreatsword.SetActive(true);
+    }
+
+    public void EquipGreyGreatsword()
+    {
+        greyGreatsword.SetActive(true);
+        blueGreatsword.SetActive(false);
     }
 }

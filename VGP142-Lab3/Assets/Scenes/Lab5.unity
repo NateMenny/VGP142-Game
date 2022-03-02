@@ -123,63 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 10e32784ad6b8e349b3d8bbea50b9071, type: 2}
---- !u!1 &135429694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7734564334249770204, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
-  m_PrefabInstance: {fileID: 1544505531}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &135429695
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135429694}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &135429698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135429694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b25de5f5cf2b5b49b93b4f2be0612a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveType: 0
-  stopDistance: 0.5
-  patrolPositions:
-  - {fileID: 653840379}
-  - {fileID: 1477592799}
---- !u!114 &135429699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135429694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedcc67ec2bd34d4595cd62a19db2205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 3238856297642559571, guid: 61418950988a7a9439d41f40a5e514cc, type: 3}
 --- !u!1 &188277794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8912856277411014398, guid: c8f880e6fbfd8f54dbd991d903f1dbb0, type: 3}
@@ -488,18 +431,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 135429698, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
+      propertyPath: patrolPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 653840379}
+    - target: {fileID: 135429698, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
+      propertyPath: patrolPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1477592799}
     - target: {fileID: 7734564334249770202, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 188277794}
-    - target: {fileID: 7734564334249770202, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
-      propertyPath: droppableItems.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7734564334249770202, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
-      propertyPath: droppableItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 8439919983091297401, guid: e89794f911c6c77418c55ba53703ce4f, type: 3}
     - target: {fileID: 7734564334249770203, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -547,10 +490,6 @@ PrefabInstance:
     - target: {fileID: 7734564334249770204, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
       propertyPath: m_Name
       value: Boo-Like Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 7734564334569298038, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
-      propertyPath: canSeePlayer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf3ad5c2b4f186478fa951b1dd7e56f, type: 3}
