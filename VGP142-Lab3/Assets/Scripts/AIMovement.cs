@@ -26,15 +26,18 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponentInChildren<EnemySightDetection>().canSeePlayer)
+        if (GameManager.Instance.Player)
         {
-            GetComponent<NavMeshAgent>().stoppingDistance = 2f;
-            ChaseTarget(GetComponent<EnemyController>().Player.transform.position);
-        }
-        else
-        {
-            GetComponent<NavMeshAgent>().stoppingDistance = 0f;
-            FollowPatrolPath();
+            if (GetComponentInChildren<EnemySightDetection>().canSeePlayer)
+            {
+                GetComponent<NavMeshAgent>().stoppingDistance = 2f;
+                ChaseTarget(GameManager.Instance.Player.transform.position);
+            }
+            else
+            {
+                GetComponent<NavMeshAgent>().stoppingDistance = 0f;
+                FollowPatrolPath();
+            }
         }
 
     }

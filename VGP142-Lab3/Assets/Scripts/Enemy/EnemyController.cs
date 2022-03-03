@@ -15,8 +15,6 @@ public class EnemyController : MonoBehaviour
     float timeSinceLastFire = 0f;
     float fireRate = 1f;
 
-    public GameObject Player { get => player;}
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +32,21 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("There is no animator on " + name);
         }
+
+        player = GameManager.Instance.Player;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(player == null)
+        {
+            player = GameManager.Instance.Player;
+        }
+
         animator.SetFloat("speed", GetComponent<NavMeshAgent>().velocity.magnitude);
 
-        if (esd.canSeePlayer)
+        if (esd.canSeePlayer && player != null)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             Debug.DrawLine(transform.position, transform.position + direction, Color.red);

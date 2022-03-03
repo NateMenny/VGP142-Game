@@ -7,6 +7,7 @@ public class BasicLeveManager : MonoBehaviour
 {
     public GameObject player;
 
+    public Transform[] checkpoints;
     public Transform startPoint;
     public Transform endPoint;
 
@@ -21,23 +22,30 @@ public class BasicLeveManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
+        player = GameManager.Instance.Player;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player == null && levelHasPlayer)
-            SceneManager.LoadScene("GameOverScene");
+        
     }
 
     public void SwitchToNextScene()
     {
-        SceneManager.LoadScene(nextScene);
+        if(nextScene.Length > 0)
+            SceneManager.LoadScene(nextScene);
     }
 
     public void SwitchToPrevScene()
     {
-        SceneManager.LoadScene(prevScene);
+        if (prevScene.Length > 0)
+            SceneManager.LoadScene(prevScene);
+    }
+
+    public void ContinueGame()
+    {
+        if (player == null) player = GameManager.Instance.SpawnPlayer(checkpoints[0]);
     }
 
     public void QuitGame()
