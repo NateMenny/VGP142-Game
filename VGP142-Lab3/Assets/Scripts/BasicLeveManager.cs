@@ -47,9 +47,4 @@ public class BasicLeveManager : MonoBehaviour
     {
         if (player == null) player = GameManager.Instance.SpawnPlayer(checkpoints[0]);
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
