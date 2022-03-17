@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         //else model.SetActive(false);
 
         timeSinceLastFire += Time.deltaTime;
-
+        
         if (GetComponent<HealthHandler>().LifePoints <= 0) Die();
     }
 
@@ -70,14 +70,17 @@ public class EnemyController : MonoBehaviour
     public void IGotPunched()
     {
         animator.SetTrigger("hitByPunch");
+        GetComponent<ParticleSystem>().Play();
     }
     public void IGotKicked()
     {
         animator.SetTrigger("hitByKick");
+        GetComponent<ParticleSystem>().Play();
     }
     public void IGotShot()
     {
         animator.SetTrigger("hitByShot");
+        GetComponent<ParticleSystem>().Play();
     }
 
     void Die()

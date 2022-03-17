@@ -10,7 +10,13 @@ public class InvinciblePickup : Pickup
 
         if (hh = other.GetComponent<HealthHandler>())
             hh.BecomeInvincible();
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        if(GetComponent<ParticleSystem>())
+        {
+            GetComponent<ParticleSystem>().Play();
+        }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 2f);
     }
 }

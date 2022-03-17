@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         return player;
     }
 
-    void GameIsOver()
+    public void GameIsOver()
     {
         SceneManager.LoadScene("GameOverScene");
     }

@@ -17,6 +17,8 @@ public class AIMovement : MonoBehaviour
     [SerializeField] Transform[] patrolPositions;
     int currentDestinationIndex = 0;
 
+    public Transform[] PatrolPositions { get => patrolPositions; set => patrolPositions = value; }
+
     // Start is called before the first frame update
     void Start()
     {
